@@ -1,7 +1,18 @@
 {
-    "rewrites":[
-        {
-            "source": "/(.*)", "destination": "/"
+    "builds": [
+      {
+        "src": "trip-planner/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "trip-planner/dist"
         }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "trip-planner/$1"
+      }
     ]
-}
+  }
+  
