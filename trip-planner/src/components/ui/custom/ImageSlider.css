@@ -1,0 +1,59 @@
+/* Ensure the slider spans the full width and hides overflow */
+.slider-container {
+  overflow: hidden;
+  width: 100vw;
+  height: 300px; /* Adjust as needed */
+  position: relative;
+  margin-top: 25px;
+}
+
+/* The track that holds the images and slides continuously */
+.slider-track {
+  display: flex;
+  width: calc(200%); /* Twice the width for smooth looping */
+  gap: 20px; /* Space between images */
+  animation: scroll 30s linear infinite; /* Speed and looping */
+  align-items: center; /* Center align all images */
+}
+
+.slider-track:hover{
+  animation-play-state: paused;
+}
+
+/* Ensure all images are the same size and fit the container */
+.slider-image {
+  width: 300px; /* Fixed width for all images */
+  height: 100%; /* Let the image take up full container height */
+  object-fit: cover; /* Maintain aspect ratio and crop excess */
+  border-radius: 8px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow effect */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.slider-image:hover {
+  transform: scale(1.05); /* Slightly enlarge the image */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+
+/* Infinite scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .slider-image {
+    width: 150px; /* Smaller width for smaller screens */
+  }
+
+  .slider-container {
+    height: 250px; /* Adjust height for mobile */
+  }
+}
